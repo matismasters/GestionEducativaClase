@@ -1,0 +1,29 @@
+﻿<h1>Crear Nuevo Semestre</h1>
+
+<!-- Mensaje de error, si existe alguno -->
+<p class="text-danger">@ViewBag.Error</p>
+
+<!-- Formulario para crear un nuevo semestre -->
+<form action="/SemestresControladora/Crear" method="post" class="mt-4">
+    <div class="form-group mb-3">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" value="@ViewBag.Nombre" class="form-control" placeholder="Ingrese el nombre del semestre">
+    </div>
+    <div class="form-group mb-3">
+        <label for="ordenNumero">Orden Número</label>
+        <input type="number" id="ordenNumero" name="ordenNumero" value="@ViewBag.OrdenNumero" class="form-control" placeholder="Ingrese el orden del semestre">
+    </div>
+    <div class="form-group mb-3">
+        <label for="carreraId">Carrera</label>
+        <select id="carreraId" name="carreraId" class="form-control">
+            @foreach (var carrera in ViewBag.Carreras)
+            {
+                <option value="@carrera.Id">@carrera.Nombre</option>
+            }
+        </select>
+    </div>
+
+    <!-- Botones de acción -->
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="/SemestresControladora/Index" class="btn btn-secondary">Cancelar</a>
+</form>

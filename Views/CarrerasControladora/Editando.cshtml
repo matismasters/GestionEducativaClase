@@ -1,0 +1,35 @@
+﻿<div class="container mt-5">
+    <h1 class="mb-4">Editar Carrera</h1>
+
+    <!-- Mensaje de error -->
+    <p class="text-danger text-center">@ViewBag.Error</p>
+
+    <!-- Formulario -->
+    <form action="/CarrerasControladora/Editar" method="post">
+        <input type="hidden" name="id" value="@ViewBag.Carrera.Id" />
+
+        <!-- Campo Nombre -->
+        <div class="mb-3">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" name="nombre" id="Nombre" class="form-control" value="@ViewBag.Carrera.Nombre" />
+        </div>
+
+        <!-- Campo Descripción -->
+        <div class="mb-3">
+            <label for="Descripcion" class="form-label">Descripción</label>
+            <textarea name="descripcion" id="Descripcion" class="form-control" rows="3">@ViewBag.Carrera.Descripcion</textarea>
+        </div>
+
+        <!-- Campo Requerimientos -->
+        <div class="mb-3">
+            <label for="Requerimientos" class="form-label">Requerimientos</label>
+            <textarea name="requerimientos" id="Requerimientos" class="form-control" rows="3">@ViewBag.Carrera.Requerimientos</textarea>
+        </div>
+
+        <!-- Botones -->
+        <div class="d-flex justify-content-start mt-4">
+            <button type="submit" class="btn btn-primary me-2">Guardar</button>
+            <a href="/CarrerasControladora/Index" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>

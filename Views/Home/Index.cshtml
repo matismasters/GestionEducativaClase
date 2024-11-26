@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<ul>
+    @foreach(Profesor profesor in ViewBag.Profesores)
+    {
+        <li><span class="text-danger">@profesor.Id</span>@profesor.Nombre</li>
+    }
+</ul>
+
+<ul>
+    @foreach(Dictado dictado in ViewBag.Dictados)
+    {
+        <li>
+            <p>ProfesorId: @dictado.ProfesorId</p>
+            <p>Profesor: @dictado.Profesor.Nombre</p>
+            <p>Materia: @dictado.Materia.Id</p>
+            <p>Materia: @dictado.Materia.Nombre</p>
+            <p>Dictados de Materia: @dictado.Materia.Dictados.Count</p>
+        </li>
+    }
+</ul>
+

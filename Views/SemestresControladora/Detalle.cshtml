@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout"; //
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="">
+            <!-- Título de la página -->
+            <h1 class="mb-4">Detalle de Semestre: @ViewBag.Semestre.Nombre</h1>
+
+            <!-- Información del semestre -->
+            <p><strong>Orden Número:</strong> @ViewBag.Semestre.OrdenNumero</p>
+
+            <!-- Contenedor para el botón, colocado al final de la información pero alineado a la izquierda -->
+            <div class="mt-4 mb-4 d-flex justify-content-start">
+                <a href="/SemestresControladora" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver al Listado
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

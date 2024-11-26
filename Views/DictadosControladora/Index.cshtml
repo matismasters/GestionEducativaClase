@@ -1,0 +1,40 @@
+﻿<div class="container mt-5">
+    <h1 class="mb-4 text-center">Dictados</h1>
+
+    <div class="d-flex justify-content-start mb-4">
+        <a href="/DictadosControladora/Nuevo" class="btn btn-primary">Nuevo Dictado</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Año</th>
+                    <th scope="col">Turno</th>
+                    <th scope="col">Instituto</th>
+                    <th scope="col">Materia</th>
+                    <th scope="col">Profesor</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Dictado dictado in ViewBag.Dictados)
+                {
+                    <tr>
+                        <td>@dictado.Ano</td>
+                        <td>@dictado.Turno</td>
+                        <td>@dictado.Instituto</td>
+                        <td>@dictado.Materia.Nombre</td>
+                        <td>@dictado.Profesor.Nombre</td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <a href="/DictadosControladora/Editando/@dictado.Id" class="btn btn-sm btn-warning">Editar</a>
+                                <a href="/DictadosControladora/Borrar/@dictado.Id" class="btn btn-sm btn-danger">Borrar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

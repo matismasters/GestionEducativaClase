@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout"; 
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">Semestres</h1>
+            <!-- Botón para agregar nuevo semestre -->
+            <a href="/SemestresControladora/Nuevo" class="btn btn-primary mb-3">Nuevo Semestre</a>
+
+            <!-- Tabla para mostrar semestres -->
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Orden Número</th>
+                        <th>Carrera</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Semestre semestre in ViewBag.Semestres)
+                    {
+                        <tr>
+                            <td>@semestre.Nombre</td>
+                            <td>@semestre.OrdenNumero</td>
+                            <td>@semestre.Carrera?.Nombre</td>
+                            <td>
+                                <a href="/SemestresControladora/Detalle/@semestre.Id" class="btn btn-info btn-sm">Detalle</a>
+                                <a href="/SemestresControladora/Editando/@semestre.Id" class="btn btn-warning btn-sm">Editar</a>
+                                <a href="/SemestresControladora/Borrar/@semestre.Id" class="btn btn-danger btn-sm">Borrar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

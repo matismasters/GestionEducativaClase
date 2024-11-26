@@ -1,0 +1,61 @@
+﻿@{
+    string InstitutoAsOption(string instituto, string institutoSeleccionado)
+    {
+        return $"<option value='{instituto}' {(instituto == institutoSeleccionado ? " selected" : "")}>{instituto}</option>";
+    }
+}
+<div class="container mt-5">
+    <h1 class="mb-4">Crear Dictado</h1>
+    <p class="text-danger">@ViewBag.Error</p>
+
+    <!-- Formulario para crear una nuevo dictado -->
+    <form action="/DictadosControladora/Crear" method="post" class="mt-4">
+        <div class="form-group mb-3">
+            <label for="ano">Año</label>
+            <input type="text" id="ano" name="ano" value="@ViewBag.Ano" class="form-control">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="turno">Turno</label>
+            <input type="text" id="turno" name="turno" value="@ViewBag.Turno" class="form-control">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="instituto">Instituto</label>
+            <select id="instituto" name="instituto" class="form-control">
+                <option>Selecciona una opción</option>
+                @foreach (string instituto in ViewBag.Institutos)
+                {
+                    @Html.Raw(InstitutoAsOption(instituto, ViewBag.Instituto))
+                }
+            </select>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="profesorId">Profesor</label>
+            <select id="profesorId" name="profesorId" class="form-control">
+                <option>Selecciona una opción</option>
+                @foreach (Profesor profesor in ViewBag.Profesores)
+                {
+                    @Html.Raw(profesor.AsOption(ViewBag.ProfesorId))
+                }
+            </select>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="materiaId">Materia</label>
+            <select id="materiaId" name="materiaId" class="form-control">
+                <option>Selecciona una opción</option>
+                @foreach (Materia materia in ViewBag.Materias)
+                {
+                    @Html.Raw(materia.AsOption(ViewBag.MateriaId))
+                }
+            </select>
+        </div>
+        <!-- Botones de acción -->
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="/DictadosControladora/Index" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>

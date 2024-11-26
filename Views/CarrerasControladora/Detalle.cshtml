@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout"; 
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="">
+            <!-- Título de la página -->
+            <h1 class="mb-4">Detalle de Carrera Analista Programador</h1>
+
+            <!-- Descripción de la carrera -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Descripción</h5>
+                    <p class="card-text">@ViewBag.Carrera.Descripcion</p>
+                </div>
+            </div>
+
+            <!-- Requerimientos de la carrera -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Requerimientos</h5>
+                    <p class="card-text">@ViewBag.Carrera.Requerimientos</p>
+                </div>
+            </div>
+
+            <!-- Listado de semestres asociados a la carrera -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Semestres</h5>
+                    <ul>
+                        @foreach (Semestre semestre in ViewBag.Carrera.Semestres)
+                        {
+                            <li>@semestre.Nombre</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Botón para volver al listado de carreras, colocado en la parte inferior derecha -->
+            <div class="d-flex justify-content-start">
+                <a href="/CarrerasControladora" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver al Listado
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

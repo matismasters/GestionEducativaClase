@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout";  // Asegúrate de utilizar un layout base si tienes uno.
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <!-- Título de la página -->
+            <h1 class="mb-4">Detalle de Materia: @ViewBag.Materia.Nombre</h1>
+
+            <!-- Descripción de la materia -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Descripción</h5>
+                    <p class="card-text">@ViewBag.Materia.Descripcion</p>
+                </div>
+            </div>
+
+            <!-- Semestre y carrera asociada a la materia -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Semestre</h5>
+                    <p class="card-text">@ViewBag.Materia.Semestre.Nombre</p>
+                    <h5 class="card-title">Carrera</h5>
+                    <p class="card-text">@ViewBag.Materia.Semestre.Carrera.Nombre</p>
+                </div>
+            </div>
+
+            <!-- Botón para volver al listado de materias, colocado en la parte inferior izquierda -->
+            <div class="d-flex justify-content-start mb-4">
+                <a href="/MateriasControladora/Index" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left"></i> Regresar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
